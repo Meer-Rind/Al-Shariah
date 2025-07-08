@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Shariah — Your Complete Islamic Companion</title>
+    <meta name="description" content="Beautiful Islamic app with Quran, prayer times, Qibla direction and more">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5f0f28',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(95, 15, 40, 0.9), rgba(95, 15, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1665306376180-3349308d5a38?q=80&w=659&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-mosque text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-primary">Al Shariah</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-primary transition">Features</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition">About</a>
+                    <a href="#legal" class="text-gray-700 hover:text-primary transition">Legal</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <a href="#features" class="block py-2 text-gray-700 hover:text-primary transition">Features</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition">About</a>
+                <a href="#legal" class="block py-2 text-gray-700 hover:text-primary transition">Legal</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white pt-32 pb-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Al Shariah — Your Complete Islamic Companion</h1>
+                <p class="text-xl mb-8">A beautifully crafted Islamic app designed to support your spiritual journey. From Quran recitation to accurate prayer times and Qibla direction, everything is organized in one peaceful place.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        <i class="fab fa-google-play mr-2"></i> Get on Play Store
+                    </button>
+                    <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition">
+                        <i class="fab fa-apple mr-2"></i> Coming to App Store
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-white bg-opacity-20 rounded-full blur-md"></div>
+                    <div class="absolute inset-4 bg-white bg-opacity-10 rounded-full blur-md"></div>
+                    <div class="relative z-10 w-full h-full flex items-center justify-center floating">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3447/3447668.png" alt="Phone mockup" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">App Features</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Al Shariah is built with a mission to make authentic Islamic content easily accessible to Muslims worldwide.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-book-quran text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Quran Reading</h3>
+                    <p class="text-gray-600">Read the Quran Ayah-by-Ayah with beautiful typography and easy navigation.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-language text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Translations</h3>
+                    <p class="text-gray-600">Available in Urdu, English (Mufti Taqi Usmani & Jalandhari), French (Molana Hamid Khan).</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headphones text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Audio Recitation</h3>
+                    <p class="text-gray-600">Listen to the Quran in the beautiful voice of Qari Abdul Rehman Al Sudais.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bookmark text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Resume & Bookmarks</h3>
+                    <p class="text-gray-600">Continue where you left off and save your favorite verses with bookmarks.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-compass text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Qibla Direction</h3>
+                    <p class="text-gray-600">Accurate compass-based guidance to find the Qibla direction anywhere.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-clock text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Namaz Timings</h3>
+                    <p class="text-gray-600">Current and upcoming prayer times based on your location.</p>
+                </div>
+                
+                <!-- Feature 7 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Islamic Date</h3>
+                    <p class="text-gray-600">View the current Islamic date and upcoming important dates.</p>
+                </div>
+                
+                <!-- Feature 8 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-gem text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">99 Names of Allah</h3>
+                    <p class="text-gray-600">Learn and listen to the beautiful names of Allah with audio recitation.</p>
+                </div>
+                
+                <!-- Feature 9 -->
+                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-praying-hands text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Digital Tasbeeh</h3>
+                    <p class="text-gray-600">Keep count of your dhikr with this easy-to-use digital tasbeeh counter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Al Shariah</h2>
+                    <div class="w-20 h-1 bg-primary mb-6"></div>
+                    <p class="text-gray-600 mb-4">Al Shariah is developed with love and sincerity by a team of Muslim developers who aim to build a reliable Islamic digital resource.</p>
+                    <p class="text-gray-600 mb-6">We value simplicity, authenticity, and user privacy. Our team is based in Pakistan and we believe in creating peaceful digital spaces for the Ummah.</p>
+                    <p class="text-gray-600">If you have feedback, suggestions, or Islamic content you'd like to share, feel free to contact us.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-heart text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Our Mission</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">To provide authentic Islamic content in a simple, elegant, and accessible way to Muslims worldwide.</p>
+                        
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-star text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Our Values</h3>
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Authenticity in content</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Respect for user privacy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Beautiful, distraction-free design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Continuous improvement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Section -->
+    <section id="legal" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Legal & Policy Documents</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">For complete transparency and compliance with global app standards, please review the following documents.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Privacy Policy</h3>
+                    <p class="text-gray-600 mb-6">We take your data privacy very seriously. Any data collected is used solely to enhance your experience.</p>
+                    <a href="https://doc-hosting.flycricket.io/al-shariah-privacy-policy/9e7697bf-350b-4189-af13-8f66d0be73aa/privacy" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        View Privacy Policy
+                    </a>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-file-contract text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Terms & Conditions</h3>
+                    <p class="text-gray-600 mb-6">Understand the terms governing your use of Al Shariah app and services.</p>
+                    <a href="https://doc-hosting.flycricket.io/al-shariah-terms-of-use/296418f7-b3f5-42d2-80b0-f1d1b187be06/terms" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        View Terms & Conditions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-primary text-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Have Questions or Suggestions?</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-white text-opacity-80 max-w-2xl mx-auto">We would love to hear from you! Whether it's a bug report, translation help, or just general feedback — we're here for you.</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2">Your Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Enter your name">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Enter your email">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block mb-2">Your Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Write your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div class="mt-10 text-center">
+                    <p class="mb-4">Or contact us directly at:</p>
+                    <a href="mailto:contect.alshariah@gmail.com" class="inline-flex items-center text-white hover:text-opacity-80 transition">
+                        <i class="fas fa-envelope mr-2"></i> contect.alshariah@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Note Section -->
+    <section class="py-16 px-6 bg-gray-800 text-white text-center">
+        <div class="container mx-auto max-w-3xl">
+            <i class="fas fa-mosque text-4xl mb-6 text-primary"></i>
+            <h3 class="text-2xl font-bold mb-4">May Allah (SWT) accept our efforts and yours.</h3>
+            <p class="text-gray-300 mb-6">We are working continuously to improve Al Shariah and bring you even more features, InshaAllah.</p>
+            <p class="text-xl text-primary font-semibold">جزاك اللهُ خيرًا</p>
+            <p class="mt-4 text-gray-300">Thank you for choosing Al Shariah.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <i class="fas fa-mosque text-primary"></i>
+                    <span class="text-white font-semibold">Al Shariah</span>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#features" class="hover:text-white transition">Features</a>
+                    <a href="#about" class="hover:text-white transition">About</a>
+                    <a href="#legal" class="hover:text-white transition">Legal</a>
+                    <a href="#contact" class="hover:text-white transition">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2023 Al Shariah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

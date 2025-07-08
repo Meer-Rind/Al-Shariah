@@ -14,6 +14,39 @@
                 extend: {
                     colors: {
                         primary: '#5f0f28',
+                        secondary: '#8a3a56',
+                        light: '#f8f5f6',
+                        dark: '#1a0a10',
+                    },
+                    fontFamily: {
+                        arabic: ['"Amiri Quran"', 'serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 4s ease-in-out infinite',
+                        'float-fast': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
                     }
                 }
             }
@@ -26,63 +59,128 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            background-color: #f8f5f6;
         }
         
         .hero-bg {
-            background: linear-gradient(rgba(95, 15, 40, 0.9), rgba(95, 15, 40, 0.9)), 
-                        url('https://images.unsplash.com/photo-1665306376180-3349308d5a38?q=80&w=659&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background: linear-gradient(rgba(26, 10, 16, 0.85), rgba(95, 15, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .quran-bg {
+            background: linear-gradient(rgba(26, 10, 16, 0.9), rgba(95, 15, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1598288192128-9d9a05a0cda2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        .arabic-text {
+            font-family: '"Amiri Quran"', serif;
+            direction: rtl;
         }
         
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .scroll-hidden {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #8a3a56, #5f0f28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(95, 15, 40, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(95, 15, 40, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(95, 15, 40, 0); }
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-light">
     <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white shadow-md z-50">
+    <header class="fixed w-full bg-white/90 shadow-md z-50 backdrop-blur-sm">
         <nav class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <i class="fas fa-mosque text-primary text-2xl"></i>
-                    <span class="text-xl font-bold text-primary">Al Shariah</span>
+                    <i class="fas fa-mosque text-primary text-2xl animate__animated animate__fadeInLeft"></i>
+                    <span class="text-xl font-bold text-primary animate__animated animate__fadeInLeft">Al Shariah</span>
                 </div>
                 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-primary transition">Features</a>
-                    <a href="#about" class="text-gray-700 hover:text-primary transition">About</a>
-                    <a href="#legal" class="text-gray-700 hover:text-primary transition">Legal</a>
-                    <a href="#contact" class="text-gray-700 hover:text-primary transition">Contact</a>
+                    <a href="#features" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown">Features</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-1s">About</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-2s">Testimonials</a>
+                    <a href="#legal" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-3s">Legal</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-4s">Contact</a>
                 </div>
                 
-                <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
+                <button class="md:hidden text-gray-700 focus:outline-none animate__animated animate__fadeInRight" id="mobile-menu-button">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Menu -->
-            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+            <div class="md:hidden hidden mt-4 pb-2 animate__animated animate__fadeIn" id="mobile-menu">
                 <a href="#features" class="block py-2 text-gray-700 hover:text-primary transition">Features</a>
                 <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition">About</a>
+                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-primary transition">Testimonials</a>
                 <a href="#legal" class="block py-2 text-gray-700 hover:text-primary transition">Legal</a>
                 <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition">Contact</a>
             </div>
@@ -90,28 +188,56 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white pt-32 pb-20 px-6">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Al Shariah — Your Complete Islamic Companion</h1>
-                <p class="text-xl mb-8">A beautifully crafted Islamic app designed to support your spiritual journey. From Quran recitation to accurate prayer times and Qibla direction, everything is organized in one peaceful place.</p>
-                <div class="flex space-x-4">
-                    <button class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+    <section class="hero-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-10">
+                <p class="arabic-text text-9xl font-bold select-none" style="transform: rotate(-5deg);">﷽</p>
+            </div>
+        </div>
+        
+        <div class="container mx-auto flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0 animate__animated animate__fadeInLeft">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-shadow">Al Shariah — Your Complete Islamic Companion</h1>
+                <p class="text-xl mb-8 opacity-90 animate__animated animate__fadeInLeft animate__delay-1s">A beautifully crafted Islamic app designed to support your spiritual journey. From Quran recitation to accurate prayer times and Qibla direction, everything is organized in one peaceful place.</p>
+                <div class="flex flex-wrap gap-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <button class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition hover-scale shadow-lg">
                         <i class="fab fa-google-play mr-2"></i> Get on Play Store
                     </button>
-                    <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition">
+                    <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition hover-scale shadow-lg">
                         <i class="fab fa-apple mr-2"></i> Coming to App Store
                     </button>
                 </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute inset-0 bg-white bg-opacity-20 rounded-full blur-md"></div>
-                    <div class="absolute inset-4 bg-white bg-opacity-10 rounded-full blur-md"></div>
-                    <div class="relative z-10 w-full h-full flex items-center justify-center floating">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3447/3447668.png" alt="Phone mockup" class="w-full h-full object-contain">
+                
+                <div class="mt-12 flex items-center space-x-4 animate__animated animate__fadeIn animate__delay-3s">
+                    <div class="flex items-center">
+                        <div class="flex -space-x-2">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+                        </div>
+                        <span class="ml-3 text-sm opacity-80">Join 50,000+ Muslims using Al Shariah</span>
                     </div>
                 </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight animate__delay-1s">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-white bg-opacity-20 rounded-3xl blur-xl animate-float-slow"></div>
+                    <div class="absolute inset-4 bg-white bg-opacity-10 rounded-3xl blur-lg animate-float-medium"></div>
+                    <div class="relative z-10 w-full h-full flex items-center justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3447/3447668.png" alt="Phone mockup" class="w-full h-full object-contain drop-shadow-2xl animate-float-fast">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Verse Section -->
+    <section class="py-16 px-6 quran-bg text-white text-center">
+        <div class="container mx-auto max-w-4xl">
+            <div class="glass-card p-8 md:p-12 rounded-2xl backdrop-blur-md">
+                <p class="arabic-text text-3xl md:text-4xl mb-6 leading-relaxed animate__animated animate__fadeIn">وَذَكِّرْ فَإِنَّ ٱلذِّكْرَىٰ تَنفَعُ ٱلْمُؤْمِنِينَ</p>
+                <p class="text-xl italic opacity-90 animate__animated animate__fadeIn animate__delay-1s">"And remind, for indeed, the reminder benefits the believers."</p>
+                <p class="mt-4 animate__animated animate__fadeIn animate__delay-2s">— Quran 51:55</p>
             </div>
         </div>
     </section>
@@ -120,143 +246,410 @@
     <section id="features" class="py-20 px-6 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">App Features</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">Al Shariah is built with a mission to make authentic Islamic content easily accessible to Muslims worldwide.</p>
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">APP FEATURES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 animate__animated animate__fadeIn">Enhance Your Spiritual Journey</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 animate__animated animate__fadeIn"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeIn">Al Shariah is built with a mission to make authentic Islamic content easily accessible to Muslims worldwide.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-book-quran text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-book-quran"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Quran Reading</h3>
-                    <p class="text-gray-600">Read the Quran Ayah-by-Ayah with beautiful typography and easy navigation.</p>
+                    <p class="text-gray-600">Read the Quran Ayah-by-Ayah with beautiful typography and easy navigation. Multiple mushaf styles available.</p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-language text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-language"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Translations</h3>
-                    <p class="text-gray-600">Available in Urdu, English (Mufti Taqi Usmani & Jalandhari), French (Molana Hamid Khan).</p>
+                    <p class="text-gray-600">Available in Urdu, English (Mufti Taqi Usmani & Jalandhari), French (Molana Hamid Khan) and more.</p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-headphones text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-headphones"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Audio Recitation</h3>
-                    <p class="text-gray-600">Listen to the Quran in the beautiful voice of Qari Abdul Rehman Al Sudais.</p>
+                    <p class="text-gray-600">Listen to the Quran in the beautiful voices of multiple reciters including Sudais, Shuraim, and Mishary.</p>
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-bookmark text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-bookmark"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Resume & Bookmarks</h3>
-                    <p class="text-gray-600">Continue where you left off and save your favorite verses with bookmarks.</p>
+                    <p class="text-gray-600">Continue where you left off and save your favorite verses with bookmarks and personal notes.</p>
                 </div>
                 
                 <!-- Feature 5 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-compass text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-compass"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Qibla Direction</h3>
-                    <p class="text-gray-600">Accurate compass-based guidance to find the Qibla direction anywhere.</p>
+                    <p class="text-gray-600">Accurate compass-based guidance to find the Qibla direction anywhere in the world with calibration.</p>
                 </div>
                 
                 <!-- Feature 6 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-clock text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-clock"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Namaz Timings</h3>
-                    <p class="text-gray-600">Current and upcoming prayer times based on your location.</p>
+                    <p class="text-gray-600">Current and upcoming prayer times based on your location with multiple calculation methods.</p>
                 </div>
                 
                 <!-- Feature 7 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-calendar-alt text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.7s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Islamic Date</h3>
-                    <p class="text-gray-600">View the current Islamic date and upcoming important dates.</p>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Islamic Calendar</h3>
+                    <p class="text-gray-600">View the current Islamic date and upcoming important dates with notifications for special occasions.</p>
                 </div>
                 
                 <!-- Feature 8 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-gem text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-gem"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">99 Names of Allah</h3>
-                    <p class="text-gray-600">Learn and listen to the beautiful names of Allah with audio recitation.</p>
+                    <p class="text-gray-600">Learn and listen to the beautiful names of Allah with audio recitation, meanings, and benefits.</p>
                 </div>
                 
                 <!-- Feature 9 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-xl transition duration-300">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-praying-hands text-primary text-2xl"></i>
+                <div class="feature-card bg-gray-50 p-8 rounded-xl border border-gray-100 animate__animated animate__fadeInUp" style="animation-delay: 0.9s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-praying-hands"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Digital Tasbeeh</h3>
-                    <p class="text-gray-600">Keep count of your dhikr with this easy-to-use digital tasbeeh counter.</p>
+                    <p class="text-gray-600">Keep count of your dhikr with this easy-to-use digital tasbeeh counter with multiple counters.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center animate__animated animate__fadeIn">
+                <button class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition hover-scale shadow-lg">
+                    View All Features
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">APP PREVIEW</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 animate__animated animate__fadeIn">Beautiful Interface Designed for Focus</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 animate__animated animate__fadeIn"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeIn">Experience the Quran and Islamic tools in a clean, distraction-free environment.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="flex overflow-x-auto pb-8 scroll-hidden" id="screenshot-carousel">
+                    <div class="flex space-x-6 px-4">
+                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
+                            <img src="https://via.placeholder.com/400x800/5f0f28/ffffff?text=Quran+Screen" alt="Quran Screen" class="w-full h-auto">
+                        </div>
+                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
+                            <img src="https://via.placeholder.com/400x800/8a3a56/ffffff?text=Prayer+Times" alt="Prayer Times" class="w-full h-auto">
+                        </div>
+                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
+                            <img src="https://via.placeholder.com/400x800/1a0a10/ffffff?text=Qibla+Compass" alt="Qibla Compass" class="w-full h-auto">
+                        </div>
+                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
+                            <img src="https://via.placeholder.com/400x800/5f0f28/ffffff?text=Names+of+Allah" alt="Names of Allah" class="w-full h-auto">
+                        </div>
+                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
+                            <img src="https://via.placeholder.com/400x800/8a3a56/ffffff?text=Tasbeeh+Counter" alt="Tasbeeh Counter" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition z-10" id="screenshot-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition z-10" id="screenshot-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6 bg-primary text-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">USER TESTIMONIALS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate__animated animate__fadeIn">What Our Users Say</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6 animate__animated animate__fadeIn"></div>
+                <p class="text-white/80 max-w-2xl mx-auto animate__animated animate__fadeIn">Hear from Muslims around the world who use Al Shariah in their daily spiritual practice.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-2xl backdrop-blur-md animate__animated animate__fadeIn" style="animation-delay: 0.1s">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah A." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sarah A.</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic text-white/90">"Al Shariah has transformed my Quran reading habit. The beautiful interface makes it a joy to use daily. The audio recitation feature is especially helpful for my memorization."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-2xl backdrop-blur-md animate__animated animate__fadeIn" style="animation-delay: 0.3s">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Mohammed K." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Mohammed K.</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic text-white/90">"As someone who travels frequently, the accurate Qibla finder and prayer times have been invaluable. The app is beautifully designed and works perfectly offline too."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 rounded-2xl backdrop-blur-md animate__animated animate__fadeIn" style="animation-delay: 0.5s">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Aisha M." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Aisha M.</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic text-white/90">"I love how comprehensive this app is. From Quran to prayer times to the 99 Names of Allah, everything I need is in one place. The Urdu translation is excellent."</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center animate__animated animate__fadeIn">
+                <div class="inline-flex items-center space-x-2 bg-white/10 px-6 py-3 rounded-full">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <span>4.9 Rating from 5,000+ Reviews</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-gray-50">
+    <section id="about" class="py-20 px-6 bg-white">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Al Shariah</h2>
-                    <div class="w-20 h-1 bg-primary mb-6"></div>
-                    <p class="text-gray-600 mb-4">Al Shariah is developed with love and sincerity by a team of Muslim developers who aim to build a reliable Islamic digital resource.</p>
-                    <p class="text-gray-600 mb-6">We value simplicity, authenticity, and user privacy. Our team is based in Pakistan and we believe in creating peaceful digital spaces for the Ummah.</p>
-                    <p class="text-gray-600">If you have feedback, suggestions, or Islamic content you'd like to share, feel free to contact us.</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-heart text-primary text-2xl"></i>
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10 animate__animated animate__fadeInLeft">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team working" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent flex items-end p-8">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">Our Dedicated Team</h3>
+                                <p class="text-white/80">Working to serve the Ummah through technology</p>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-800">Our Mission</h3>
                         </div>
-                        <p class="text-gray-600 mb-6">To provide authentic Islamic content in a simple, elegant, and accessible way to Muslims worldwide.</p>
-                        
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-star text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800">Our Values</h3>
-                        </div>
-                        <ul class="text-gray-600 space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                                <span>Authenticity in content</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                                <span>Respect for user privacy</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                                <span>Beautiful, distraction-free design</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                                <span>Continuous improvement</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
+                <div class="lg:w-1/2 animate__animated animate__fadeInRight">
+                    <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">ABOUT US</span>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission & Values</h2>
+                    <div class="w-20 h-1 bg-primary mb-6"></div>
+                    <p class="text-gray-600 mb-6">Al Shariah is developed with love and sincerity by a team of Muslim developers who aim to build a reliable Islamic digital resource. We're based in Pakistan but serve Muslims worldwide.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Authentic Content</h4>
+                                <p class="text-gray-600">We verify all Islamic content with trusted scholars to ensure accuracy according to Quran and Sunnah.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Privacy Focused</h4>
+                                <p class="text-gray-600">We collect minimal data and never sell user information. Your spiritual journey is private.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Continuous Improvement</h4>
+                                <p class="text-gray-600">We regularly update the app with new features and content based on user feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 animate__animated animate__fadeIn">Download Al Shariah Today</h2>
+                <p class="text-xl mb-8 opacity-90 animate__animated animate__fadeIn animate__delay-1s">Join thousands of Muslims worldwide in enhancing your spiritual journey with our comprehensive Islamic app.</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <button class="bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition hover-scale shadow-lg flex items-center">
+                        <i class="fab fa-google-play text-2xl mr-3"></i>
+                        <div class="text-left">
+                            <div class="text-xs">GET IT ON</div>
+                            <div class="text-lg">Google Play</div>
+                        </div>
+                    </button>
+                    <button class="bg-black/20 border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary transition hover-scale shadow-lg flex items-center">
+                        <i class="fab fa-apple text-2xl mr-3"></i>
+                        <div class="text-left">
+                            <div class="text-xs">COMING SOON TO</div>
+                            <div class="text-lg">App Store</div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="mt-12 flex flex-wrap justify-center gap-6 animate__animated animate__fadeIn animate__delay-3s">
+                    <div class="flex items-center">
+                        <i class="fas fa-user-check text-2xl mr-3"></i>
+                        <div>
+                            <div class="text-2xl font-bold">50,000+</div>
+                            <div class="text-sm opacity-80">Active Users</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-2xl mr-3 text-yellow-400"></i>
+                        <div>
+                            <div class="text-2xl font-bold">4.9/5</div>
+                            <div class="text-sm opacity-80">Average Rating</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-globe text-2xl mr-3"></i>
+                        <div>
+                            <div class="text-2xl font-bold">120+</div>
+                            <div class="text-sm opacity-80">Countries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 animate__animated animate__fadeIn">Frequently Asked Questions</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 animate__animated animate__fadeIn"></div>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(1)">
+                        <h3 class="text-lg font-semibold text-gray-800">Is Al Shariah available for iOS?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 overflow-hidden transition-all duration-300 h-0" id="faq-content-1">
+                        <p>We're currently working on the iOS version of Al Shariah and plan to release it soon, InshaAllah. The Android version is available now on the Google Play Store. You can sign up on our website to be notified when the iOS version launches.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(2)">
+                        <h3 class="text-lg font-semibold text-gray-800">Does the app work offline?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 overflow-hidden transition-all duration-300 h-0" id="faq-content-2">
+                        <p>Yes! Most features including Quran reading, translations, Qibla direction (after initial calibration), and prayer times (after initial location setup) work completely offline. Some features like location-based prayer times may require occasional internet connection for updates.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(3)">
+                        <h3 class="text-lg font-semibold text-gray-800">How accurate is the Qibla direction?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 overflow-hidden transition-all duration-300 h-0" id="faq-content-3">
+                        <p>Our Qibla finder uses your device's compass along with advanced algorithms to provide highly accurate direction. For best results, calibrate your compass by moving your phone in a figure-8 motion when prompted. Accuracy may vary slightly depending on your device's hardware and local magnetic interference.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(4)">
+                        <h3 class="text-lg font-semibold text-gray-800">Can I add my own prayer time calculation method?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-4"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 overflow-hidden transition-all duration-300 h-0" id="faq-content-4">
+                        <p>Currently, we support all major calculation methods (MWL, ISNA, Egypt, Makkah, Karachi, etc.) that you can select in settings. If your preferred method isn't listed, please contact us and we'll consider adding it in a future update.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(5)">
+                        <h3 class="text-lg font-semibold text-gray-800">Is there a premium version with more features?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-5"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 overflow-hidden transition-all duration-300 h-0" id="faq-content-5">
+                        <p>Al Shariah is completely free with no ads or hidden costs. We believe Islamic knowledge should be accessible to all. Development is supported by donations from generous users. If you'd like to contribute, please visit our donation page.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center animate__animated animate__fadeIn">
+                <p class="text-gray-600 mb-4">Have more questions?</p>
+                <a href="#contact" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition hover-scale">
+                    Contact Us
+                </a>
             </div>
         </div>
     </section>
@@ -265,30 +658,31 @@
     <section id="legal" class="py-20 px-6 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Legal & Policy Documents</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">For complete transparency and compliance with global app standards, please review the following documents.</p>
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">LEGAL</span>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 animate__animated animate__fadeIn">Legal & Policy Documents</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 animate__animated animate__fadeIn"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeIn">For complete transparency and compliance with global app standards, please review the following documents.</p>
             </div>
             
             <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
-                <div class="bg-gray-50 p-8 rounded-xl text-center">
-                    <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-shield-alt text-primary text-3xl"></i>
+                <div class="bg-gray-50 p-8 rounded-xl text-center border border-gray-100 hover-scale transition animate__animated animate__fadeInLeft">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary text-3xl">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Privacy Policy</h3>
                     <p class="text-gray-600 mb-6">We take your data privacy very seriously. Any data collected is used solely to enhance your experience.</p>
-                    <a href="https://doc-hosting.flycricket.io/al-shariah-privacy-policy/9e7697bf-350b-4189-af13-8f66d0be73aa/privacy" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                    <a href="https://doc-hosting.flycricket.io/al-shariah-privacy-policy/9e7697bf-350b-4189-af13-8f66d0be73aa/privacy" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition">
                         View Privacy Policy
                     </a>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-xl text-center">
-                    <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-file-contract text-primary text-3xl"></i>
+                <div class="bg-gray-50 p-8 rounded-xl text-center border border-gray-100 hover-scale transition animate__animated animate__fadeInRight">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary text-3xl">
+                        <i class="fas fa-file-contract"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Terms & Conditions</h3>
                     <p class="text-gray-600 mb-6">Understand the terms governing your use of Al Shariah app and services.</p>
-                    <a href="https://doc-hosting.flycricket.io/al-shariah-terms-of-use/296418f7-b3f5-42d2-80b0-f1d1b187be06/terms" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                    <a href="https://doc-hosting.flycricket.io/al-shariah-terms-of-use/296418f7-b3f5-42d2-80b0-f1d1b187be06/terms" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition">
                         View Terms & Conditions
                     </a>
                 </div>
@@ -300,35 +694,36 @@
     <section id="contact" class="py-20 px-6 bg-primary text-white">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Have Questions or Suggestions?</h2>
-                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
-                <p class="text-white text-opacity-80 max-w-2xl mx-auto">We would love to hear from you! Whether it's a bug report, translation help, or just general feedback — we're here for you.</p>
+                <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">CONTACT US</span>
+                <h2 class="text-3xl font-bold mb-4 animate__animated animate__fadeIn">Have Questions or Suggestions?</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6 animate__animated animate__fadeIn"></div>
+                <p class="text-white/80 max-w-2xl mx-auto animate__animated animate__fadeIn">We would love to hear from you! Whether it's a bug report, translation help, or just general feedback — we're here for you.</p>
             </div>
             
-            <div class="max-w-2xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8">
+            <div class="max-w-2xl mx-auto glass-card rounded-2xl p-8 backdrop-blur-md animate__animated animate__fadeIn">
                 <form id="contactForm" class="space-y-6">
                     <div>
                         <label for="name" class="block mb-2">Your Name</label>
-                        <input type="text" id="name" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Enter your name">
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white/50" placeholder="Enter your name">
                     </div>
                     
                     <div>
                         <label for="email" class="block mb-2">Email Address</label>
-                        <input type="email" id="email" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Enter your email">
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white/50" placeholder="Enter your email">
                     </div>
                     
                     <div>
                         <label for="message" class="block mb-2">Your Message</label>
-                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" placeholder="Write your message here..."></textarea>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white/50" placeholder="Write your message here..."></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                    <button type="submit" class="w-full bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition hover-scale">
                         Send Message
                     </button>
                 </form>
                 
                 <div class="mt-10 text-center">
-                    <p class="mb-4">Or contact us directly at:</p>
+                    <p class="mb-4 text-white/80">Or contact us directly at:</p>
                     <a href="mailto:contect.alshariah@gmail.com" class="inline-flex items-center text-white hover:text-opacity-80 transition">
                         <i class="fas fa-envelope mr-2"></i> contect.alshariah@gmail.com
                     </a>
@@ -338,13 +733,13 @@
     </section>
 
     <!-- Closing Note Section -->
-    <section class="py-16 px-6 bg-gray-800 text-white text-center">
+    <section class="py-16 px-6 bg-dark text-white text-center">
         <div class="container mx-auto max-w-3xl">
-            <i class="fas fa-mosque text-4xl mb-6 text-primary"></i>
-            <h3 class="text-2xl font-bold mb-4">May Allah (SWT) accept our efforts and yours.</h3>
-            <p class="text-gray-300 mb-6">We are working continuously to improve Al Shariah and bring you even more features, InshaAllah.</p>
-            <p class="text-xl text-primary font-semibold">جزاك اللهُ خيرًا</p>
-            <p class="mt-4 text-gray-300">Thank you for choosing Al Shariah.</p>
+            <i class="fas fa-mosque text-4xl mb-6 text-primary animate__animated animate__fadeIn"></i>
+            <h3 class="text-2xl font-bold mb-4 animate__animated animate__fadeIn">May Allah (SWT) accept our efforts and yours.</h3>
+            <p class="text-gray-300 mb-6 animate__animated animate__fadeIn">We are working continuously to improve Al Shariah and bring you even more features, InshaAllah.</p>
+            <p class="text-xl text-primary font-semibold animate__animated animate__fadeIn">جزاك اللهُ خيرًا</p>
+            <p class="mt-4 text-gray-300 animate__animated animate__fadeIn">Thank you for choosing Al Shariah.</p>
         </div>
     </section>
 
@@ -352,19 +747,20 @@
     <footer class="bg-gray-900 text-gray-400 py-10 px-6">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0 animate__animated animate__fadeIn">
                     <i class="fas fa-mosque text-primary"></i>
                     <span class="text-white font-semibold">Al Shariah</span>
                 </div>
                 
-                <div class="flex space-x-6 mb-6 md:mb-0">
+                <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 animate__animated animate__fadeIn">
                     <a href="#features" class="hover:text-white transition">Features</a>
                     <a href="#about" class="hover:text-white transition">About</a>
+                    <a href="#testimonials" class="hover:text-white transition">Testimonials</a>
                     <a href="#legal" class="hover:text-white transition">Legal</a>
                     <a href="#contact" class="hover:text-white transition">Contact</a>
                 </div>
                 
-                <div class="flex space-x-4">
+                <div class="flex space-x-4 animate__animated animate__fadeIn">
                     <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -377,14 +773,14 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm animate__animated animate__fadeIn">
                 <p>&copy; 2023 Al Shariah. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90 hover-scale">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -395,6 +791,7 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate__fadeIn');
         });
         
         // Smooth scrolling for anchor links
@@ -457,6 +854,58 @@
             // Reset form
             contactForm.reset();
         });
+        
+        // FAQ toggle function
+        function toggleFAQ(number) {
+            const content = document.getElementById(`faq-content-${number}`);
+            const icon = document.getElementById(`faq-icon-${number}`);
+            
+            if (content.style.height === '0px' || !content.style.height) {
+                content.style.height = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.height = '0';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Screenshot carousel
+        const carousel = document.getElementById('screenshot-carousel');
+        const prevBtn = document.getElementById('screenshot-prev');
+        const nextBtn = document.getElementById('screenshot-next');
+        
+        let scrollPosition = 0;
+        const scrollAmount = 300;
+        
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollLeft -= scrollAmount;
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollLeft += scrollAmount;
+        });
+        
+        // Intersection Observer for animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animate');
+                        entry.target.classList.add(animation);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+        
+        // Initialize animations when page loads
+        window.addEventListener('DOMContentLoaded', animateOnScroll);
     </script>
 </body>
 </html>

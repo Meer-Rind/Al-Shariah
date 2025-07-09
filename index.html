@@ -155,37 +155,96 @@
 </head>
 <body class="bg-light">
     <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white/90 shadow-md z-50 backdrop-blur-sm">
-        <nav class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-mosque text-primary text-2xl animate__animated animate__fadeInLeft"></i>
-                    <span class="text-xl font-bold text-primary animate__animated animate__fadeInLeft">Al Shariah</span>
+    
+<header class="fixed w-full bg-gradient-to-r from-white to-white/80 shadow-lg z-50 backdrop-blur-md border-b border-white/20">
+    <nav class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+            <!-- Logo with beautiful animation -->
+            <div class="flex items-center space-x-3 group">
+                <div class="relative">
+                    <i class="fas fa-mosque text-2xl text-primary transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110"></i>
+                    <div class="absolute -inset-2 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
+                <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-600 animate-gradient-x">Al Shariah</span>
+                <span class="hidden md:block text-xs px-2 py-1 rounded-full bg-primary/10 text-primary animate-pulse">Halal Certified</span>
+            </div>
+            
+            <!-- Desktop Navigation with stunning hover effects -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="relative px-3 py-2 text-gray-700 hover:text-primary transition-all duration-300 group">
+                    <span class="z-10 relative">Features</span>
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    <div class="absolute inset-0 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown">Features</a>
-                    <a href="#about" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-1s">About</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-2s">Testimonials</a>
-                    <a href="#legal" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-3s">Legal</a>
-                    <a href="#contact" class="text-gray-700 hover:text-primary transition hover:-translate-y-1 animate__animated animate__fadeInDown animate__delay-4s">Contact</a>
-                </div>
+                <a href="#about" class="relative px-3 py-2 text-gray-700 hover:text-primary transition-all duration-300 group">
+                    <span class="z-10 relative">About</span>
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left delay-75"></div>
+                    <div class="absolute inset-0 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75"></div>
+                </a>
                 
-                <button class="md:hidden text-gray-700 focus:outline-none animate__animated animate__fadeInRight" id="mobile-menu-button">
-                    <i class="fas fa-bars text-2xl"></i>
+                <a href="#testimonials" class="relative px-3 py-2 text-gray-700 hover:text-primary transition-all duration-300 group">
+                    <span class="z-10 relative">Testimonials</span>
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left delay-100"></div>
+                    <div class="absolute inset-0 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
+                </a>
+                
+                <a href="#legal" class="relative px-3 py-2 text-gray-700 hover:text-primary transition-all duration-300 group">
+                    <span class="z-10 relative">Legal</span>
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left delay-150"></div>
+                    <div class="absolute inset-0 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150"></div>
+                </a>
+                
+                <a href="#contact" class="relative px-3 py-2 text-gray-700 hover:text-primary transition-all duration-300 group">
+                    <span class="z-10 relative">Contact</span>
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left delay-200"></div>
+                    <div class="absolute inset-0 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"></div>
+                </a>
+                
+                <button class="ml-4 px-4 py-2 bg-gradient-to-r from-primary to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 transform hover:-translate-y-0.5">
+                    Get Started
                 </button>
             </div>
             
-            <!-- Mobile Menu -->
-            <div class="md:hidden hidden mt-4 pb-2 animate__animated animate__fadeIn" id="mobile-menu">
-                <a href="#features" class="block py-2 text-gray-700 hover:text-primary transition">Features</a>
-                <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition">About</a>
-                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-primary transition">Testimonials</a>
-                <a href="#legal" class="block py-2 text-gray-700 hover:text-primary transition">Legal</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition">Contact</a>
+            <!-- Mobile Menu Button with animation -->
+            <button class="md:hidden relative w-8 h-8 focus:outline-none group" id="mobile-menu-button">
+                <div class="absolute w-6 transform transition-all duration-300 left-1 top-3 group-hover:bg-primary" id="bar1"></div>
+                <div class="absolute w-6 transform transition-all duration-300 left-1 top-[14px] group-hover:bg-primary" id="bar2"></div>
+                <div class="absolute w-6 transform transition-all duration-300 left-1 top-5 group-hover:bg-primary" id="bar3"></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu with beautiful dropdown animation -->
+        <div class="md:hidden hidden mt-4 pb-2 origin-top" id="mobile-menu">
+            <div class="bg-white/90 rounded-xl shadow-lg p-4 space-y-3 border border-gray-100">
+                <a href="#features" class="block px-4 py-3 rounded-lg hover:bg-primary/5 text-gray-700 hover:text-primary transition-all duration-300 flex items-center">
+                    <i class="fas fa-star mr-3 text-primary/80"></i>
+                    <span>Features</span>
+                </a>
+                <a href="#about" class="block px-4 py-3 rounded-lg hover:bg-primary/5 text-gray-700 hover:text-primary transition-all duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-3 text-primary/80"></i>
+                    <span>About</span>
+                </a>
+                <a href="#testimonials" class="block px-4 py-3 rounded-lg hover:bg-primary/5 text-gray-700 hover:text-primary transition-all duration-300 flex items-center">
+                    <i class="fas fa-comments mr-3 text-primary/80"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="#legal" class="block px-4 py-3 rounded-lg hover:bg-primary/5 text-gray-700 hover:text-primary transition-all duration-300 flex items-center">
+                    <i class="fas fa-gavel mr-3 text-primary/80"></i>
+                    <span>Legal</span>
+                </a>
+                <a href="#contact" class="block px-4 py-3 rounded-lg hover:bg-primary/5 text-gray-700 hover:text-primary transition-all duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-3 text-primary/80"></i>
+                    <span>Contact</span>
+                </a>
+                <button class="w-full mt-2 px-4 py-3 bg-gradient-to-r from-primary to-emerald-600 text-white rounded-lg hover:shadow-md transition-all duration-300 flex justify-center items-center">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Get Started
+                </button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Section -->
     <section class="hero-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">

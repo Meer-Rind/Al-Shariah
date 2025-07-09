@@ -293,16 +293,44 @@
     </section>
 
     <!-- Quran Verse Section -->
-    <section class="py-16 px-6 quran-bg text-white text-center">
-        <div class="container mx-auto max-w-4xl">
-            <div class="glass-card p-8 md:p-12 rounded-2xl backdrop-blur-md">
-                <p class="arabic-text text-3xl md:text-4xl mb-6 leading-relaxed animate__animated animate__fadeIn">وَذَكِّرْ فَإِنَّ ٱلذِّكْرَىٰ تَنفَعُ ٱلْمُؤْمِنِينَ</p>
-                <p class="text-xl italic opacity-90 animate__animated animate__fadeIn animate__delay-1s">"And remind, for indeed, the reminder benefits the believers."</p>
-                <p class="mt-4 animate__animated animate__fadeIn animate__delay-2s">— Quran 51:55</p>
+    <section class="py-20 px-6 bg-gradient-to-br from-primary/90 to-emerald-700 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 rounded-full bg-white animate-[float_8s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-20 right-20 w-40 h-40 rounded-full bg-white animate-[float_10s_ease-in-out_infinite]"></div>
+        <div class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-white animate-[float_12s_ease-in-out_infinite]"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-4xl relative">
+        <div class="bg-white/10 border border-white/20 rounded-3xl p-8 md:p-12 backdrop-blur-lg shadow-2xl animate-[fadeIn_1.5s_ease-out]">
+            <!-- Arabic text with beautiful styling -->
+            <p class="arabic-text text-4xl md:text-5xl font-bold mb-8 leading-relaxed text-white drop-shadow-lg animate-[slideUp_1s_ease-out]"
+               style="font-family: 'Traditional Arabic', 'Amiri', serif;">
+                وَذَكِّرْ فَإِنَّ ٱلذِّكْرَىٰ تَنفَعُ ٱلْمُؤْمِنِينَ
+            </p>
+            
+            <!-- Translation with elegant typography -->
+            <div class="space-y-6">
+                <p class="text-xl md:text-2xl italic text-white/90 leading-relaxed animate-[slideUp_1s_ease-out_0.3s]">
+                    "And remind, for indeed, the reminder benefits the believers."
+                </p>
+                
+                <!-- Reference with decorative elements -->
+                <div class="flex items-center justify-center space-x-4 animate-[slideUp_1s_ease-out_0.6s]">
+                    <div class="h-px w-16 bg-white/50"></div>
+                    <p class="text-lg text-white/80 font-medium">— Quran 51:55</p>
+                    <div class="h-px w-16 bg-white/50"></div>
+                </div>
             </div>
+            
+            <!-- Decorative corner elements -->
+            <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white/50"></div>
+            <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-white/50"></div>
+            <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-white/50"></div>
+            <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white/50"></div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Features Section -->
     <section id="features" class="py-20 px-6 bg-white">
         <div class="container mx-auto">

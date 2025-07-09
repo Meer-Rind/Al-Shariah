@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -433,46 +433,114 @@
     </div>
 </section>
     <!-- App Screenshots Section -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4 animate__animated animate__fadeIn">APP PREVIEW</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 animate__animated animate__fadeIn">Beautiful Interface Designed for Focus</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6 animate__animated animate__fadeIn"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeIn">Experience the Quran and Islamic tools in a clean, distraction-free environment.</p>
-            </div>
-            
-            <div class="relative">
-                <div class="flex overflow-x-auto pb-8 scroll-hidden" id="screenshot-carousel">
-                    <div class="flex space-x-6 px-4">
-                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
-                            <img src="https://via.placeholder.com/400x800/5f0f28/ffffff?text=Quran+Screen" alt="Quran Screen" class="w-full h-auto">
+    <section class="py-24 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-primary/10 animate-[float_12s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-20 right-20 w-60 h-60 rounded-full bg-primary/5 animate-[float_15s_ease-in-out_infinite]"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-7xl relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-20">
+            <span class="inline-block px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-5 tracking-wider animate-[fadeIn_1s_ease-out]">
+                APP PREVIEW
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-[slideUp_0.8s_ease-out]">
+                Beautiful Interface Designed for <span class="text-primary">Focus & Serenity</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-emerald-400 mx-auto mb-6 rounded-full animate-[scaleX_1s_ease-out]"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg animate-[fadeIn_1s_ease-out_0.3s]">
+                Experience the Quran and Islamic tools in a clean, distraction-free environment that promotes contemplation.
+            </p>
+        </div>
+        
+        <!-- Carousel Container -->
+        <div class="relative group">
+            <!-- Carousel Track -->
+            <div class="relative overflow-hidden">
+                <div class="flex pb-12 -mx-4 overflow-x-auto snap-x snap-mandatory scroll-smooth" id="screenshot-carousel">
+                    <!-- Slide 1 -->
+                    <div class="px-4 flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <h3 class="text-white text-xl font-semibold">Quran Reading</h3>
+                            </div>
+                            <img src="https://via.placeholder.com/400x800/1e293b/ffffff?text=Quran+Screen" alt="Quran Screen" class="w-full h-auto">
                         </div>
-                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
-                            <img src="https://via.placeholder.com/400x800/8a3a56/ffffff?text=Prayer+Times" alt="Prayer Times" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="px-4 flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <h3 class="text-white text-xl font-semibold">Prayer Times</h3>
+                            </div>
+                            <img src="https://via.placeholder.com/400x800/334155/ffffff?text=Prayer+Times" alt="Prayer Times" class="w-full h-auto">
                         </div>
-                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
-                            <img src="https://via.placeholder.com/400x800/1a0a10/ffffff?text=Qibla+Compass" alt="Qibla Compass" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="px-4 flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <h3 class="text-white text-xl font-semibold">Qibla Compass</h3>
+                            </div>
+                            <img src="https://via.placeholder.com/400x800/1e293b/ffffff?text=Qibla+Compass" alt="Qibla Compass" class="w-full h-auto">
                         </div>
-                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
-                            <img src="https://via.placeholder.com/400x800/5f0f28/ffffff?text=Names+of+Allah" alt="Names of Allah" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Slide 4 -->
+                    <div class="px-4 flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <h3 class="text-white text-xl font-semibold">99 Names</h3>
+                            </div>
+                            <img src="https://via.placeholder.com/400x800/334155/ffffff?text=Names+of+Allah" alt="Names of Allah" class="w-full h-auto">
                         </div>
-                        <div class="w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl hover-scale transition">
-                            <img src="https://via.placeholder.com/400x800/8a3a56/ffffff?text=Tasbeeh+Counter" alt="Tasbeeh Counter" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Slide 5 -->
+                    <div class="px-4 flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <h3 class="text-white text-xl font-semibold">Tasbeeh Counter</h3>
+                            </div>
+                            <img src="https://via.placeholder.com/400x800/1e293b/ffffff?text=Tasbeeh+Counter" alt="Tasbeeh Counter" class="w-full h-auto">
                         </div>
                     </div>
                 </div>
-                
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition z-10" id="screenshot-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition z-10" id="screenshot-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 -translate-x-6 z-10" id="screenshot-prev">
+                <i class="fas fa-chevron-left text-lg"></i>
+            </button>
+            <button class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-6 z-10" id="screenshot-next">
+                <i class="fas fa-chevron-right text-lg"></i>
+            </button>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<style>
+    .scroll-hidden::-webkit-scrollbar {
+        display: none;
+    }
+    .scroll-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 px-6 bg-primary text-white">
         <div class="container mx-auto">

@@ -648,68 +648,116 @@
 }
 </style>
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10 animate__animated animate__fadeInLeft">
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
-                        <img src="LOGO.png" alt="Team working" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent flex items-end p-8">
-                            <div>
-                                <h3 class="text-white text-xl font-bold">Our Dedicated Team</h3>
-                                <p class="text-white/80">Working to serve the Ummah through technology</p>
+    <section id="about" class="py-24 px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-20 right-10 w-40 h-40 rounded-full bg-primary/10 animate-[float_12s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-20 left-20 w-60 h-60 rounded-full bg-primary/5 animate-[float_15s_ease-in-out_infinite]"></div>
+    </div>
+
+    <div class="container mx-auto max-w-7xl relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Image Section -->
+            <div class="lg:w-1/2 w-full animate-[fadeInLeft_1s_ease-out]">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                    <img src="LOGO.png" alt="Team working" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                    
+                    <!-- Image overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent flex items-end p-8">
+                        <div class="transform transition-all duration-500 group-hover:-translate-y-2">
+                            <h3 class="text-white text-2xl font-bold mb-2">Our Dedicated Team</h3>
+                            <p class="text-white/80">Working to serve the Ummah through technology</p>
+                            
+                            <!-- Team stats -->
+                            <div class="flex gap-6 mt-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white mb-1">10+</div>
+                                    <div class="text-sm text-white/70">Team Members</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white mb-1">5+</div>
+                                    <div class="text-sm text-white/70">Years Experience</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                                    <div class="text-sm text-white/70">Support</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="lg:w-1/2 animate__animated animate__fadeInRight">
-                    <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">ABOUT US</span>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission & Values</h2>
-                    <div class="w-20 h-1 bg-primary mb-6"></div>
-                    <p class="text-gray-600 mb-6">Al Shariah is developed with love and sincerity by a team of Muslim developers who aim to build a reliable Islamic digital resource. We're based in Pakistan but serve Muslims worldwide.</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex">
-                            <div class="mr-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Authentic Content</h4>
-                                <p class="text-gray-600">We verify all Islamic content with trusted scholars to ensure accuracy according to Quran and Sunnah.</p>
+                    <!-- Decorative corner elements -->
+                    <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-white/50"></div>
+                    <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-white/50"></div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="lg:w-1/2 w-full animate-[fadeInRight_1s_ease-out]">
+                <span class="inline-block px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 tracking-wider">
+                    ABOUT US
+                </span>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Our <span class="text-primary">Mission</span> & Values
+                </h2>
+                
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-emerald-400 mb-8 rounded-full"></div>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Al Shariah is developed with love and sincerity by a team of Muslim developers who aim to build a reliable Islamic digital resource. We're based in Pakistan but serve Muslims worldwide with authentic Islamic content and tools.
+                </p>
+                
+                <div class="space-y-6">
+                    <!-- Value 1 -->
+                    <div class="flex items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                        <div class="mr-5 flex-shrink-0">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full flex items-center justify-center text-primary text-xl">
+                                <i class="fas fa-check"></i>
                             </div>
                         </div>
-                        
-                        <div class="flex">
-                            <div class="mr-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Privacy Focused</h4>
-                                <p class="text-gray-600">We collect minimal data and never sell user information. Your spiritual journey is private.</p>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Authentic Content</h4>
+                            <p class="text-gray-600">
+                                We verify all Islamic content with trusted scholars to ensure accuracy according to Quran and Sunnah. Our team includes certified Islamic researchers.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 2 -->
+                    <div class="flex items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                        <div class="mr-5 flex-shrink-0">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full flex items-center justify-center text-primary text-xl">
+                                <i class="fas fa-lock"></i>
                             </div>
                         </div>
-                        
-                        <div class="flex">
-                            <div class="mr-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Privacy Focused</h4>
+                            <p class="text-gray-600">
+                                We collect minimal data and never sell user information. Your spiritual journey is private. Our app is fully compliant with Islamic ethics on privacy.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 3 -->
+                    <div class="flex items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                        <div class="mr-5 flex-shrink-0">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full flex items-center justify-center text-primary text-xl">
+                                <i class="fas fa-sync-alt"></i>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Continuous Improvement</h4>
-                                <p class="text-gray-600">We regularly update the app with new features and content based on user feedback.</p>
-                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Continuous Improvement</h4>
+                            <p class="text-gray-600">
+                                We regularly update the app with new features and content based on user feedback. Our roadmap includes exciting new Islamic learning tools.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Download CTA Section -->
     <section class="py-20 px-6 bg-gradient-to-r from-primary to-secondary text-white">
         <div class="container mx-auto text-center">

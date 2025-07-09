@@ -151,6 +151,72 @@
             70% { box-shadow: 0 0 0 15px rgba(95, 15, 40, 0); }
             100% { box-shadow: 0 0 0 0 rgba(95, 15, 40, 0); }
         }
+
+         @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    @keyframes pulse-glow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.7; }
+    }
+    @keyframes color-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes scroll-indicator {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(30px); opacity: 0; }
+    }
+    
+    .animate-typing {
+        animation: typing 3s steps(40) 1s 1 normal both;
+    }
+    .animate-float-slow {
+        animation: float 8s ease-in-out infinite;
+    }
+    .animate-float-medium {
+        animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-fast {
+        animation: float 4s ease-in-out infinite;
+    }
+    .animate-pulse-slow {
+        animation: pulse-glow 6s ease-in-out infinite;
+    }
+    .animate-ping-slow {
+        animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .animate-ping-medium {
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .animate-ping-fast {
+        animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .animate-color-shift {
+        animation: color-shift 10s ease infinite;
+        background-size: 200% 200%;
+    }
+    .animate-scroll-indicator {
+        animation: scroll-indicator 2s ease infinite;
+    }
+    .animate-fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+    }
+    .animate-fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-700 { animation-delay: 0.7s; }
     </style>
 </head>
 <body class="bg-light">
@@ -354,71 +420,7 @@
 
 <!-- Custom Animations -->
 <style>
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-    }
-    @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
-    }
-    @keyframes pulse-glow {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.7; }
-    }
-    @keyframes color-shift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    @keyframes scroll-indicator {
-        0% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(30px); opacity: 0; }
-    }
-    
-    .animate-typing {
-        animation: typing 3s steps(40) 1s 1 normal both;
-    }
-    .animate-float-slow {
-        animation: float 8s ease-in-out infinite;
-    }
-    .animate-float-medium {
-        animation: float 6s ease-in-out infinite;
-    }
-    .animate-float-fast {
-        animation: float 4s ease-in-out infinite;
-    }
-    .animate-pulse-slow {
-        animation: pulse-glow 6s ease-in-out infinite;
-    }
-    .animate-ping-slow {
-        animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-    .animate-ping-medium {
-        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-    .animate-ping-fast {
-        animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-    .animate-color-shift {
-        animation: color-shift 10s ease infinite;
-        background-size: 200% 200%;
-    }
-    .animate-scroll-indicator {
-        animation: scroll-indicator 2s ease infinite;
-    }
-    .animate-fade-in {
-        opacity: 0;
-        animation: fadeIn 1s ease-in forwards;
-    }
-    .animate-fade-in-up {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s ease-out forwards;
-    }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-500 { animation-delay: 0.5s; }
-    .delay-700 { animation-delay: 0.7s; }
+   
 </style>
     <!-- Quran Verse Section -->
     <section class="py-16 px-6 quran-bg text-white text-center">

@@ -64,96 +64,94 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #f8f5f6;
-        }
-        
-        .hero-bg {
-            background: linear-gradient(rgba(26, 10, 16, 0.85), rgba(95, 15, 40, 0.9)), 
-                        url('https://media.istockphoto.com/id/2062995221/photo/holy-quran.jpg?s=1024x1024&w=is&k=20&c=2U3lTQGYqAqc2ZdPU1VLzM0RwMRyG94lUvfyLO2ZJvM=');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        .quran-bg {
-            background: linear-gradient(rgba(26, 10, 16, 0.9), rgba(95, 15, 40, 0.9)), 
-                        url('https://images.unsplash.com/photo-1598288192128-9d9a05a0cda2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        .feature-card {
-            transition: all 0.3s ease;
-            transform: translateY(0);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .arabic-text {
-            font-family: '"Amiri Quran"', serif;
-            direction: rtl;
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-        }
-        
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
-        .scroll-hidden::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .scroll-hidden {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #8a3a56, #5f0f28);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(95, 15, 40, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(95, 15, 40, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(95, 15, 40, 0); }
-        }
+    body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #E0F7FA; /* Soft */
+}
 
-         
-    </style>
+.hero-bg {
+    background: linear-gradient(rgba(10, 38, 71, 0.85), rgba(44, 116, 179, 0.9)), 
+                url('https://media.istockphoto.com/id/2062995221/photo/holy-quran.jpg?s=1024x1024&w=is&k=20&c=2U3lTQGYqAqc2ZdPU1VLzM0RwMRyG94lUvfyLO2ZJvM=');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.quran-bg {
+    background: linear-gradient(rgba(10, 38, 71, 0.9), rgba(44, 116, 179, 0.9)), 
+                url('https://images.unsplash.com/photo-1598288192128-9d9a05a0cda2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #102A43; /* CardBg */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.arabic-text {
+    font-family: '"Amiri Quran"', serif;
+    direction: rtl;
+    color: #A2D2FF; /* LightText */
+}
+
+.glass-card {
+    background: rgba(16, 42, 67, 0.8); /* CardBg with opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(162, 210, 255, 0.2); /* LightText with opacity */
+}
+
+.parallax {
+    background-attachment: fixed;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.scroll-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #0A2647, #2C74B3); /* Primary to Secondary */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(56, 182, 255, 0.7); } /* Accent color */
+    70% { box-shadow: 0 0 0 15px rgba(56, 182, 255, 0); } /* Accent color */
+    100% { box-shadow: 0 0 0 0 rgba(56, 182, 255, 0); } /* Accent color */
+}
 </head>
 <body class="bg-light">
     <!-- Header/Navigation -->
